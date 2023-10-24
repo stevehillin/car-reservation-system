@@ -22,7 +22,8 @@ INSERT INTO vehicles
 INSERT INTO customers
     (first_name, last_name, address, city, state, zip, phone, email)
     VALUES
-        ('Steve', 'Hillin', '123 Anywhere Street', 'Anyplace', 'TX', '00000', '+12819875791','stevehillin+nospam@gmail.com');
+        ('Steve', 'Hillin', '123 Anywhere Street', 'Anyplace', 'TX', '00000', '+12819875791','stevehillin+nospam@gmail.com'),
+        ('Steve2', 'Hillin2', '1234 Anywhere Street', 'Anyplace', 'TX', '00000', '+12819875791','stevehillin+nospam2@gmail.com');
 
 INSERT INTO bookings
     (customer_id, vehicle_id, hire_date, return_date, book_status)
@@ -36,7 +37,7 @@ INSERT INTO bookings
     VALUES
         (1, 3, '2023-10-24 00:00:00', '2023-11-02 00:00:00', 1);
 
--- Should fail, too far in future (Fails)
+-- Should fail, too far in future (Works, need to fix.)
 
 INSERT INTO bookings
     (customer_id, vehicle_id, hire_date, return_date, book_status)
