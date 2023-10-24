@@ -90,9 +90,7 @@ CREATE TRIGGER booking_not_too_far_in_future
 BEFORE INSERT ON bookings
 FOR EACH ROW
 BEGIN
-DECLARE test_date datetime;
-SET @test_date := DATE_ADD(NOW(), INTERVAL 7 DAY);
-IF NEW.hire_date > test_date THEN
+IF (NEW.hire_date > CURDATE() + INTERVAL 7 DAY) THEN
 SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'hire_date cannot be more than 7 days in the future!';
 END IF;
 END $$
