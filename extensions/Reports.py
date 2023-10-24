@@ -7,4 +7,5 @@ db = DB()
 class Reports():
 
     def DailyReports():
+        """Sends daily reports to employees of all bookings for today."""
         pass

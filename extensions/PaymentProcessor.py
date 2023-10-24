@@ -8,6 +8,7 @@ class PaymentProcessor():
         # TODO: Implement Payment Gateway
 
     def _luhn_checksum(self, card_number):
+        """Private method to check a credit card against the luhn algorithm."""
         def digits_of(card_number):
             return [int(d) for d in str(card_number)]
         digits = digits_of(card_number)
@@ -20,6 +21,8 @@ class PaymentProcessor():
         return checksum % 10
 
     def ValidateCard(self, card_number) -> bool:
+        """Validates a customer supplied card to make sure the card number is theoretically correct.
+        Does not actually auth any charges."""
         return self._luhn_checksum(card_number) == 0
 
     # TODO:  Add methods needed to charge credit cards, issue refunds, etc.

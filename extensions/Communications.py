@@ -13,5 +13,6 @@ class Communications():
             'password': os.environ.get('DBPASS'),
         }
 
-    def SendEmail(self, document_id: str):
+    def SendEmail(self, destination: str, document_id: str):
+        """Used to send various emails and documents to customers and employees as needed."""
         pass
