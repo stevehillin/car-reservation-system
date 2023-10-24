@@ -12,12 +12,12 @@ class DB():
             'database': os.environ.get('DBNAME')
         }
 
-    def get_connection(self):
+    def GetConnection(self):
         return mysql.connector.connect(**self.db_config)
     
-    def exec_query(self, query):
+    def ExecQuery(self, query):
         try:
-            conn = self.get_connection()
+            conn = self.GetConnection()
             cursor = conn.cursor(dictionary=True)
             cursor.execute(query)
             result = cursor.fetchall()
@@ -25,7 +25,7 @@ class DB():
             conn.close()
             return result
         except mysql.connector.Error as err:
-            app.logger.critical('Unable to connect to DB!')
+            app.logger.critical(str(err))
             return str(err)
         
 
