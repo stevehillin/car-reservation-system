@@ -14,7 +14,7 @@ def create():
 @bp.route('/', methods=['GET'])
 def read():
     # return jsonify({'message': 'Query executed successfully'})
-    results = db.exec_query("SELECT * FROM bookings ORDER BY id DESC")
+    results = db.ExecQuery("SELECT * FROM bookings ORDER BY id DESC")
     return jsonify(results)
 
 @bp.route('/update/<id>', methods=['POST'])
