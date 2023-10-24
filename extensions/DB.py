@@ -18,7 +18,7 @@ class DB():
     def exec_query(self, query):
         try:
             conn = self.get_connection()
-            cursor = conn.cursor()
+            cursor = conn.cursor(dictionary=True)
             cursor.execute(query)
             result = cursor.fetchall()
             cursor.close()
